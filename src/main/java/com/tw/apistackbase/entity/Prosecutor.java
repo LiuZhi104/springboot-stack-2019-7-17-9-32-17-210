@@ -1,6 +1,7 @@
 package com.tw.apistackbase.entity;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name ="prosecutor")
@@ -10,7 +11,11 @@ public class Prosecutor {
     private int prosecutorId;
     @Column(nullable = false,length = 255,unique = true)
     private String prosecutorName;
-
+    private int age;
+    private String gender;
+    private Date birthday;
+    private  String number;
+    private  int workExperience;
     public Prosecutor() {
     }
 

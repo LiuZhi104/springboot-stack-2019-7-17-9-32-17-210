@@ -67,7 +67,7 @@ public class CriminalCaseTest {
         //when//
         CriminalCase crinial = criminalCaseRepository.findById(Integer.valueOf(1)).get();
         // /then
-       Assertions.assertEquals("xxCase",crinial.getCaseName());
+       Assertions.assertEquals("xxCase",crinial.getName());
     }
 
     @Test
@@ -80,7 +80,7 @@ public class CriminalCaseTest {
         //when//
         List<CriminalCase> crinialList = criminalCaseRepository.findByOrderByTimeDesc();
         // /then
-        Assertions.assertEquals("yyCase",crinialList.get(0).getCaseName());
+        Assertions.assertEquals("yyCase",crinialList.get(0).getName());
     }
 
     @Test
@@ -95,7 +95,7 @@ public class CriminalCaseTest {
         //when//
         List<CriminalCase> crinialList = criminalCaseRepository.findAllByCaseName("xxCase");
         // /then
-        Assertions.assertEquals(crinialList.get(1).getCaseName(),crinialList.get(0).getCaseName());
+        Assertions.assertEquals(crinialList.get(1).getName(),crinialList.get(0).getName());
     }
     @Test
     public void should_delete_case_when_delete_crinimal_case_by_id() {
@@ -136,6 +136,6 @@ public class CriminalCaseTest {
         criminalCaseRepository.saveAndFlush(criminalCase);
         //when//
         // /then
-        Assertions.assertEquals("xx检察院",criminalCaseRepository.findCriminalCaseBycaseId(criminalCase.getCaseId()).getProcuratorate().getProcuratorateName());
+        Assertions.assertEquals("xx检察院",criminalCaseRepository.findCriminalCaseBycaseId(criminalCase.getId()).getProcuratorate().getProcuratorateName());
     }
 }
